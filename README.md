@@ -1,4 +1,4 @@
-TinyML Audio Classification on ESP32 TTGO T-Display
+ TinyML Audio Classification on ESP32 TTGO T-Display
 
 📌 Project Overview
 
@@ -65,8 +65,7 @@ Train a TinyML model and optimize it
 Deploy the model to ESP32 for real-time inference
 
 📸 Demo & Results
-
-(Include images or GIFs of the working prototype here)
+![Project Preview](preview.png)
 
 📌 Future Improvements
 
@@ -80,6 +79,6 @@ Battery optimization for longer usage
 
 Pull requests are welcome! Feel free to suggest improvements or report issues.
 
-![Project Preview](preview.png)
+
 
 
