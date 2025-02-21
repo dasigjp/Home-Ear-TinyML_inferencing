@@ -65,6 +65,7 @@ Train a TinyML model and optimize it
 Deploy the model to ESP32 for real-time inference
 
 📸 Demo & Results
+
 ![Project Preview](preview.png)
 
 📌 Future Improvements
