@@ -66,6 +66,7 @@ EI_IMPULSE_ERROR run_nn_inference_image_quantized(
         nn_in_info = LL_ATON_Input_Buffers_Info_Default();
         nn_out_info = LL_ATON_Output_Buffers_Info_Default();
 
+<<<<<<< HEAD
         nn_in = (uint8_t *) LL_Buffer_addr_start(&nn_in_info[0]);
         uint32_t nn_in_len = LL_Buffer_len(&nn_in_info[0]);
 
@@ -77,6 +78,20 @@ EI_IMPULSE_ERROR run_nn_inference_image_quantized(
         #endif
         nn_out_len = LL_Buffer_len(&nn_out_info[0]);
         
+=======
+        nn_in = (uint8_t *) nn_in_info[0].addr_start.p;
+        uint32_t nn_in_len = LL_Buffer_len(&nn_in_info[0]);
+        nn_out = (uint8_t *) nn_out_info[0].addr_start.p;
+
+
+        #if DATA_OUT_FORMAT_FLOAT32
+        nn_out = (float32_t *) nn_out_info[0].addr_start.p;
+        #else
+        nn_out = (uint8_t *) nn_out_info[0].addr_start.p;
+        #endif
+        nn_out_len = LL_Buffer_len(&nn_out_info[0]);
+
+>>>>>>> ab9923a28fc5410c832133804f4acbe53395f851
         first_run = false;
     }
 
@@ -87,6 +102,7 @@ EI_IMPULSE_ERROR run_nn_inference_image_quantized(
 
     LL_ATON_RT_Main(&NN_Instance_Default);
 
+<<<<<<< HEAD
     /* Discard all nn_out regions to avoid Dcache evictions during nn inference */
     #ifdef USE_DCACHE
     int i = 0;
@@ -94,6 +110,10 @@ EI_IMPULSE_ERROR run_nn_inference_image_quantized(
             SCB_InvalidateDCache_by_Addr((float32_t *) LL_Buffer_addr_start(&nn_out_info[i]), LL_Buffer_len(&nn_out_info[i]));
             i++;
     }
+=======
+    #ifdef USE_DCACHE
+    SCB_CleanInvalidateDCache_by_Addr(nn_out, nn_out_len);
+>>>>>>> ab9923a28fc5410c832133804f4acbe53395f851
     #endif
 
     ei_learning_block_config_tflite_graph_t *block_config = (ei_learning_block_config_tflite_graph_t *)impulse->learning_blocks[0].config;
@@ -123,6 +143,7 @@ EI_IMPULSE_ERROR run_nn_inference_image_quantized(
                 #endif
                 break;
 
+<<<<<<< HEAD
             case EI_CLASSIFIER_LAST_LAYER_YOLO_PRO:
                 #if MODEL_OUTPUT_IS_FLOAT
                 fill_res = fill_result_struct_f32_yolo_pro(
@@ -142,6 +163,8 @@ EI_IMPULSE_ERROR run_nn_inference_image_quantized(
                 #endif
                 break;
 
+=======
+>>>>>>> ab9923a28fc5410c832133804f4acbe53395f851
             case EI_CLASSIFIER_LAST_LAYER_FOMO:
                 fill_res = fill_result_struct_i8_fomo(
                     impulse,

@@ -335,6 +335,7 @@ EI_IMPULSE_ERROR run_nn_inference(
                 }
                 break;
             }
+<<<<<<< HEAD
             case EI_CLASSIFIER_LAST_LAYER_YOLO_PRO: {
                 if (network->getOfmTypes()[0] == EthosU::TensorType_INT8) {
                     fill_res = fill_result_struct_quantized_yolo_pro(
@@ -364,6 +365,8 @@ EI_IMPULSE_ERROR run_nn_inference(
                 }
                 break;
             }
+=======
+>>>>>>> ab9923a28fc5410c832133804f4acbe53395f851
             default: {
                 ei_printf("ERR: Object Detection layer (%d) not supported\n", block_config->object_detection_last_layer);
                 return EI_IMPULSE_LAST_LAYER_NOT_SUPPORTED;

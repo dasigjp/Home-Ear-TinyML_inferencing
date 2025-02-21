@@ -57,9 +57,12 @@ using namespace ei;
     #if (EI_CLASSIFIER_OBJECT_DETECTION_LAST_LAYER == EI_CLASSIFIER_LAST_LAYER_YOLOV2)
     #define EI_HAS_YOLOV2 1
     #endif
+<<<<<<< HEAD
     #if (EI_CLASSIFIER_OBJECT_DETECTION_LAST_LAYER == EI_CLASSIFIER_LAST_LAYER_YOLO_PRO)
     #define EI_HAS_YOLO_PRO 1
     #endif
+=======
+>>>>>>> ab9923a28fc5410c832133804f4acbe53395f851
 #endif
 
 __attribute__((unused)) inline float sigmoid(float a) {
@@ -994,9 +997,15 @@ __attribute__((unused)) static EI_IMPULSE_ERROR fill_result_struct_f32_yolov7(co
 #endif // #ifdef EI_HAS_YOLOV7
 }
 
+<<<<<<< HEAD
 #if (EI_HAS_TAO_DECODE_DETECTIONS == 1) || (EI_HAS_TAO_YOLO == 1) || (EI_HAS_YOLO_PRO == 1)
 
 __attribute__((unused)) static void prepare_nms_results_common(const ei_impulse_t *impulse,
+=======
+#if (EI_HAS_TAO_DECODE_DETECTIONS == 1) || (EI_HAS_TAO_YOLO == 1)
+
+__attribute__((unused)) static void prepare_tao_results_common(const ei_impulse_t *impulse,
+>>>>>>> ab9923a28fc5410c832133804f4acbe53395f851
                                                                ei_impulse_result_t *result,
                                                                std::vector<ei_impulse_result_bounding_box_t> *results) {
     #define EI_CLASSIFIER_OBJECT_DETECTION_KEEP_TOPK 200
@@ -1011,7 +1020,11 @@ __attribute__((unused)) static void prepare_nms_results_common(const ei_impulse_
         }
     }
 
+<<<<<<< HEAD
     // we sort in reverse order across all classes,
+=======
+    // we sort in reverse order accross all classes,
+>>>>>>> ab9923a28fc5410c832133804f4acbe53395f851
     // since results for each class are pushed to the end.
     std::sort(results->begin(), results->end(), [ ]( const ei_impulse_result_bounding_box_t& lhs, const ei_impulse_result_bounding_box_t& rhs )
     {
@@ -1156,7 +1169,11 @@ __attribute__((unused)) static EI_IMPULSE_ERROR fill_result_struct_tao_decode_de
         }
     }
 
+<<<<<<< HEAD
     prepare_nms_results_common(impulse, result, &results);
+=======
+    prepare_tao_results_common(impulse, result, &results);
+>>>>>>> ab9923a28fc5410c832133804f4acbe53395f851
 
     return EI_IMPULSE_OK;
 }
@@ -1287,7 +1304,11 @@ __attribute__((unused)) static EI_IMPULSE_ERROR  fill_result_struct_tao_yolov3_c
         }
     }
 
+<<<<<<< HEAD
     prepare_nms_results_common(impulse, result, &results);
+=======
+    prepare_tao_results_common(impulse, result, &results);
+>>>>>>> ab9923a28fc5410c832133804f4acbe53395f851
     return EI_IMPULSE_OK;
 }
 #endif // #ifdef EI_HAS_TAO_YOLOV3
@@ -1393,7 +1414,11 @@ __attribute__((unused)) static EI_IMPULSE_ERROR fill_result_struct_tao_yolov4_co
         }
     }
 
+<<<<<<< HEAD
     prepare_nms_results_common(impulse, result, &results);
+=======
+    prepare_tao_results_common(impulse, result, &results);
+>>>>>>> ab9923a28fc5410c832133804f4acbe53395f851
     return EI_IMPULSE_OK;
 }
 #endif // #ifdef EI_HAS_TAO_YOLOV4
@@ -1724,6 +1749,7 @@ __attribute__((unused)) static EI_IMPULSE_ERROR fill_result_struct_f32_yolov2(co
 #endif // #ifdef EI_HAS_YOLOV7
 }
 
+<<<<<<< HEAD
 #ifdef EI_HAS_YOLO_PRO
 template<typename T>
 __attribute__((unused)) static EI_IMPULSE_ERROR fill_result_struct_yolo_pro_common(const ei_impulse_t *impulse,
@@ -1856,6 +1882,8 @@ __attribute__((unused)) static EI_IMPULSE_ERROR fill_result_struct_quantized_yol
 #endif // #ifdef EI_HAS_YOLO_PRO
 }
 
+=======
+>>>>>>> ab9923a28fc5410c832133804f4acbe53395f851
 #if EI_CLASSIFIER_SINGLE_FEATURE_INPUT == 0
 bool find_mtx_by_idx(ei_feature_t* mtx, ei::matrix_t** matrix, uint32_t mtx_id, size_t mtx_size) {
     for (size_t i = 0; i < mtx_size; i++) {

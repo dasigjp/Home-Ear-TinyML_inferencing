@@ -540,6 +540,7 @@ EI_IMPULSE_ERROR fill_result_struct_from_output_tensor_tflite(
                 }
                 break;
             }
+<<<<<<< HEAD
             case EI_CLASSIFIER_LAST_LAYER_YOLO_PRO: {
 
                 if (output->type == kTfLiteInt8) {
@@ -579,6 +580,8 @@ EI_IMPULSE_ERROR fill_result_struct_from_output_tensor_tflite(
                 }
                 break;
             }
+=======
+>>>>>>> ab9923a28fc5410c832133804f4acbe53395f851
             default: {
                 ei_printf("ERR: Unsupported object detection last layer (%d)\n",
                     block_config->object_detection_last_layer);
